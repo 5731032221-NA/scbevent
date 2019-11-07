@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-lg static-top" style="background-color: #4F2A81">
+        <div class="container">
+          <a class="navbar-brand" href="#" style="background-color: #4F2A81">
+                <img src="../../assets/logo.gif" alt="">
+              </a>
+        </div>
+      </nav>
+<div class="container" style="color: #4F2A81; margin-top: 3%;" *ngIf="!flag">
+  <div class="row">
+      <div class="col-md-6 md-3 offset-sm-3">
+          <h3 style="padding-top:20px; padding-bottom:20px"> SCB Facial Registration</h3>
+
+          <form novalidate  [formGroup]="myform">
+            <div>
+          <label>
+              <b>Employee ID:</b>
+            </label>
+              <input class="form-control"  type="text" placeholder="s00000"   formControlName="empid" ngModel required> 
+          </div>
+          <div class="form-control-feedback"
+          *ngIf="empid.errors && (empid.dirty || empid.touched)">
+       <p *ngIf="empid.errors.required">Empolyee ID is required</p>
+
+     </div>
+            <h1></h1>
+            <div>
+                 <label>
+                <b>First Name:</b>  </label>
+                <input class="form-control" type="text" placeholder="กรุณากรอกชื่อภาษาไทย"  formControlName="fname"  required>
+            </div>
+            <div class="form-control-feedback"
+          *ngIf="fname.errors && (fname.dirty || fname.touched)">
+       <p *ngIf="fname.errors.required">First name is required</p>
+     </div>
+          
+
+            <h1></h1>
+            <div>
+            <label>
+               <b>Last Name:</b>  </label>
+                <input  class="form-control" type="text" placeholder="กรุณากรอกนามสกุลภาษาไทย" formControlName="lname"  required>
+            </div>
+            <div class="form-control-feedback"
+          *ngIf="lname.errors && (lname.dirty || lname.touched)">
+       <p *ngIf="lname.errors.required">Last name is required</p>
+     </div>
+            </form>
+
+           
+              
+            <h1></h1>
+          <!-- <h3>Choose File</h3>             -->
+          <!-- <div class="form-group">
+              <input type="file" name="image" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera" (change)="fileProgress($event)" />
+              <input type="file" name="image" />
+            </div> -->
+            <label>
+            <b>อัปโหลดรูปภาพใบหน้าของคุณ 3 รูป</b>  </label>
+            <div class="custom-file mb-3 form-group" style="margin-top: 2%;">
+                    <input type="file" name="image" style="background-color:  #4F2A81;" id="image" class="custom-file-input" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera" (change)="fileProgress($event)" />
+                   <label class="custom-file-label" for="customFile">Upload your picture</label>
+                  </div>
+          <div *ngIf="fileUploadProgress">
+              Upload progress: {{ fileUploadProgress }}
+          </div>
+          <div class="image-preview mb-3"  *ngFor="let previewUrl of previewUrl">
+              <img [src]="previewUrl" height="300" />                 
+          </div>
+          <!-- <div class="image-preview mb-3" *ngIf="previewUrl">
+            <img [src]="previewUrl2" height="300" />                 
+        </div> -->
+
+          <div class="mb-3" *ngIf="uploadedFilePath">
+              {{uploadedFilePath}}
+          </div>
+           
+          <div class="form-group">
+              <button class="btn btn-block" style="background-color: #4F2A81; color: aliceblue;" (click)="getGroupTrainingStatus()">Register now</button>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="container" style="margin-top: 3%;" *ngIf="flag">
+        <div class="row">
+                <div class="col-md-6 md-3 offset-sm-3" style="text-align: center;">
+                    <h2 style="color: #4F2A81">Register success</h2>
+                    <h2 style="color: #4F2A81">Thank you</h2>
+                    </div>
+                    </div>
+</div>
