@@ -39,9 +39,11 @@ export class RegisterComponent implements OnInit    {
   fileUploadProgress: string = null;
   uploadedFilePath: string = null;
 
-  empid = new FormControl('',[Validators.required])
+  empid = new FormControl('',[Validators.required]);
+
   fname = new FormControl('',[Validators.required])
   lname = new FormControl('',[Validators.required])
+
   public path = [];
   //public loading = false;
   public personFaces = [];
@@ -194,7 +196,7 @@ export class RegisterComponent implements OnInit    {
 
   getGroupTrainingStatus() {
     // this.loading = true;
-   var re1=new RegExp('s.....')
+   var re1=new RegExp('^[0-9]{5}$')
    var re2=new RegExp('[^A-Za-z0-9_]')
    
     
